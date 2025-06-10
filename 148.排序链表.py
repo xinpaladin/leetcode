@@ -15,6 +15,7 @@ class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         """
         归并排序 递归，时间复杂度O(nlogn)
+        空间复杂度：O(logn)，其中 n 是链表的长度。空间复杂度主要取决于递归调用的栈空间
         """
         # if not head or not head.next:
         #     return head
@@ -42,6 +43,7 @@ class Solution:
 
         """
         归并排序 迭代，时间复杂度O(nlogn)
+        空间复杂度：O(1)
         """
         cur, length, intv = head, 0, 1
         while cur:
