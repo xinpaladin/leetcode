@@ -13,23 +13,14 @@
 #         self.next = next
 class Solution:
     
-    def reverse(head: ListNode, tail: ListNode):
-        # prev = tail.next
-        # p = head
-        # while prev != tail:
-        #     nex = p.next
-        #     p.next = prev
-        #     prev = p
-        #     p = nex
-        # return tail, head
+    def reverse(self, head: ListNode, tail: ListNode):
         pre = tail.next
         p = head
-        while pre != tail:
-            nex = p.next
+        while pre  != tail:
+            next = p.next
             p.next = pre
             pre = p
-            p = nex
-            
+            p = next
         return tail, head
 
 
@@ -37,23 +28,23 @@ class Solution:
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         if k == 1:
             return head
-        hair = ListNode(0)
-        hair.next = head
+        hair = ListNode(0, head)
         pre = hair
-        while head:
+        cur = head
+        while cur:
             tail = pre
             # 查看剩余部分长度是否大于等于 k
             for i in range(k):
                 tail = tail.next
                 if not tail:
                     return hair.next
-            nex = tail.next
-            head, tail = self.reverse(head, tail)
+            next = tail.next
+            cur, tail = self.reverse(cur, tail)
             
-            pre.next = head
-            tail.next = nex
+            pre.next = cur
+            tail.next = next
             pre = tail
-            head = tail.next
+            cur = tail.next
         return hair.next
 
 
