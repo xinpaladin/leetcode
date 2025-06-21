@@ -26,20 +26,19 @@ class Solution:
         #             l = mid + 1
         #     return False
         # return False
-        
+
         m, n = len(matrix), len(matrix[0])
         left, right = -1, m * n
         while left + 1 < right:
             mid = (left + right) // 2
-            x = matrix[mid // n][mid % n]
-            if x == target:
+            row, col = mid // n, mid % n
+            if target == matrix[row][col]:
                 return True
-            if x < target:
-                left = mid
-            else:
+            elif target < matrix[row][col]:
                 right = mid
+            else:
+                left = mid
         return False
-
 
 
 # @lc code=end

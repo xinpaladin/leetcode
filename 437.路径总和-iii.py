@@ -69,6 +69,7 @@ class Solution:
             curr += node.val
             ret += prefix[curr - targetSum]
             prefix[curr] += 1
+            print(f"{node.val} -- {prefix}")
             ret += dfs(node.left, curr)
             ret += dfs(node.right, curr)
             prefix[curr] -= 1
