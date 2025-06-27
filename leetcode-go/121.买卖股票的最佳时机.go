@@ -3,6 +3,9 @@
  *
  * [121] 买卖股票的最佳时机
  */
+package main
+
+import "fmt"
 
 // @lc code=start
 func maxProfit(prices []int) int {
@@ -17,4 +20,3 @@ func maxProfit(prices []int) int {
 }
 
 // @lc code=end
-

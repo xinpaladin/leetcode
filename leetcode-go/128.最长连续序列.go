@@ -3,6 +3,7 @@
  *
  * [128] 最长连续序列
  */
+package main
 
 // @lc code=start
 func longestConsecutive(nums []int) int {
@@ -28,4 +29,3 @@ func longestConsecutive(nums []int) int {
 }
 
 // @lc code=end
-

@@ -3,6 +3,7 @@
  *
  * [20] 有效的括号
  */
+package main
 
 // @lc code=start
 // func isValid(s string) bool {
@@ -59,4 +60,3 @@ func isValid(s string) bool {
 }
 
 // @lc code=end
-

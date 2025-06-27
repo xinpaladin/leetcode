@@ -3,6 +3,9 @@
  *
  * [155] 最小栈
  */
+package main
+
+import "math"
 
 // @lc code=start
 type MinStack struct {
@@ -53,4 +56,3 @@ func min(x, y int) int {
  * param_4 := obj.GetMin();
  */
 // @lc code=end
-
