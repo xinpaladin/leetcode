@@ -46,23 +46,44 @@
 class Solution:
     def generateParenthesis(self, n):
 
-        results = set()
+        # results = set()
+
+        # def backtrace(res, left, right):
+        #     if left == right == 0:
+        #         results.add(res)
+        #         return
+        #     if left == 0:
+        #         results.add(res + ')' * right)
+        #         return
+        #     if left == right:
+        #         backtrace(res + '(', left - 1, right)
+        #         return
+        #     backtrace(res + '(', left - 1, right)
+        #     backtrace(res + ')', left, right - 1)
+
+        # backtrace('', n, n)
+        # return list(results)
+
+        results = []
 
         def backtrace(res, left, right):
-            if left == right == 0:
-                results.add(res)
+            if len(res) == 2 * n:
+                results.append("".join(res))
                 return
-            if left == 0:
-                results.add(res + ')' * right)
-                return
-            if left == right:
-                backtrace(res + '(', left - 1, right)
-                return
-            backtrace(res + '(', left - 1, right)
-            backtrace(res + ')', left, right - 1)
+            if left > 0:
+                res.append("(")
+                backtrace(res, left - 1, right)
+                res.pop()
+            if right > left:
+                res.append(")")
+                backtrace(res, left, right - 1)
+                res.pop()
 
-        backtrace('', n, n)
-        return list(results)
+        backtrace([], n, n)
+        return results
 
 
 # @lc code=end
+
+n = 3
+Solution().generateParenthesis(n)
