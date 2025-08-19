@@ -3,20 +3,24 @@
  *
  * [121] 买卖股票的最佳时机
  */
-package main
+// package main
 
-import "fmt"
+// import "fmt"
+
+// func main() {
+// 	prices := []int{7, 1, 5, 3, 6, 4}
+// 	res := maxProfit(prices)
+// 	fmt.Println(res)
+// }
 
 // @lc code=start
-func maxProfit(prices []int) int {
+func maxProfit(prices []int) (ans int) {
 	minPrice := prices[0]
-	maxProfit := 0
-	for _, price := range prices {
-		fmt.Println(price, minPrice)
-		maxProfit = max(price-minPrice, maxProfit)
-		minPrice = min(price, minPrice)
+	for _, p := range prices {
+		ans = max(ans, p-minPrice)
+		minPrice = min(minPrice, p)
 	}
-	return maxProfit
+	return
 }
 
 // @lc code=end
